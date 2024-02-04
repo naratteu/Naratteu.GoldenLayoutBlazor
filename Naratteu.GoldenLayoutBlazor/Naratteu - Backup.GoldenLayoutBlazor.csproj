@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup Label="T4">
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+    <None Include="golden-layout.js" DesignTime="True" AutoGen="True" DependentUpon="golden-layout.tt" />
+    <None Include="golden-layout.tt" Generator="TextTemplatingFileGenerator" LastGenOutput="golden-layout.js" />
+    <Content Include="golden-layout.js" Link="wwwroot\golden-layout.js" />
+  </ItemGroup>
+
+</Project>

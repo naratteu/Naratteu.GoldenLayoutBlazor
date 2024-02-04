@@ -1,0 +1,3 @@
+<#@output extension=".js"#>
+<# using var client = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }; #>
+<#= client.DownloadString("https://cdn.skypack.dev/-/golden-layout@v2.6.0-UzOSkh4rMRcVgzlTsjT2/dist=es2020,mode=imports,min/optimized/golden-layout.js") #>

@@ -1,0 +1,52 @@
+﻿@page "/"
+@inject GoldenLayout goldenLayout
+
+<h1>Hello, GoldenLayout!</h1>
+
+<div style="position:absolute;left:10px;right:10px;top:100px;bottom:10px;" @ref=gl></div>
+
+<div id="good">good</div>
+
+<div class="time">@(new { DateTime.Now })</div>
+
+<div class="time"><button @onclick=StateHasChanged>StateHasChanged</button></div>
+
+<div id="count"><Counter /></div>
+
+@code {
+    ElementReference gl;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var group = new { type = "", content = (object[])[] };
+            var comp = new
+            {
+                type = "component",
+                componentType = "rf",
+                title = "",
+                componentState = new { query = "" }
+            };
+            await goldenLayout.InitRfMode(gl, new
+            {
+                root = group with
+                {
+                    type = "row",
+                    content =
+                    [
+                        comp with { title= "home", componentState = new { query= "div#good" } },
+                        group with
+                        {
+                            type = "column",
+                            content =
+                            [
+                                comp with { title= "time", componentState= new { query = "div.time" } },
+                                comp with { title= "counter", componentState= new { query = "div#count" } },
+                            ]
+                        }
+                    ]
+                }
+            });
+        }
+    }
+}
