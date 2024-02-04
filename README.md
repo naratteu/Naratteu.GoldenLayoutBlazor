@@ -2,7 +2,7 @@
 
 도킹 레이아웃을 블레이저에 임의적용하기위한 실험 라이브러리입니다.
 
-## [Example](https://github.com/naratteu/Naratteu.GoldenLayoutBlazor/tree/master/Example.Wasm) [Page](https://naratteu.github.io/Naratteu.AspNetCore.Components.TickChart)
+## [Example](https://github.com/naratteu/Naratteu.GoldenLayoutBlazor/tree/master/Example.Wasm) / [Page](https://naratteu.github.io/Naratteu.GoldenLayoutBlazor)
 
 ## Todo
 
