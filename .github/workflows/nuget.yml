@@ -1,0 +1,15 @@
+name: Nuget Publish
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: "8.0.x"
+    - run: dotnet pack -c Release -o ./pack
+    - run: dotnet nuget push ./pack/*.nupkg --skip-duplicate --api-key "${{secrets.GH_TOKEN}}" --source "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
+    - run: dotnet nuget push ./pack/*.nupkg --skip-duplicate --api-key "${{secrets.NU_TOKEN}}" --source "https://api.nuget.org/v3/index.json"

@@ -6,6 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Label="Nuget_Publish">
+    <IsPackable>true</IsPackable>
+    <Version>0.0.1-beta</Version>
+    <RepositoryUrl>https://github.com/naratteu/Naratteu.GoldenLayoutBlazor</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup Label="Nuget_Publish">
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
